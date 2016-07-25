@@ -1,4 +1,10 @@
-$navbar-default-bg: #014421;
+$navbar-default-bg: #000;
+
+$jumbotron-bg: #F5F5F5;
+$white: #ffffff;
+
+$navbar-default-brand-color: $white;
+$navbar-default-link-color: $white;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
