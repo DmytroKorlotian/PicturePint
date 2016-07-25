@@ -1,0 +1,1 @@
+json.array! @pints, partial: 'pints/pint', as: :pint
