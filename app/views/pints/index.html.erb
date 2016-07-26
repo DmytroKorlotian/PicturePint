@@ -11,6 +11,7 @@
           <% else %>
             <i>No description available</i></br>
           <% end %>
+          <br/><strong><%= pint.user.name if pint.user %></strong><br/>
         </div>
         <% if pint.user == current_user %>
           <div class="panel-footer">
