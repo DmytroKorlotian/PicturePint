@@ -15,8 +15,10 @@
       <tr>
         <td><%= pint.description %></td>
         <td><%= link_to 'Show', pint %></td>
+        <% if pint.user == current_user %>
         <td><%= link_to 'Edit', edit_pint_path(pint) %></td>
         <td><%= link_to 'Destroy', pint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

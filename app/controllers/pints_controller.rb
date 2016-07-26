@@ -1,5 +1,7 @@
 class PintsController < ApplicationController
   before_action :set_pint, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /pints
   # GET /pints.json
@@ -10,11 +12,12 @@ class PintsController < ApplicationController
   # GET /pints/1
   # GET /pints/1.json
   def show
+    @pint = Pint.find(params[:id])
   end
 
   # GET /pints/new
   def new
-    @pint = Pint.new
+    @pint = current_user.pints.build
   end
 
   # GET /pints/1/edit
@@ -24,7 +27,7 @@ class PintsController < ApplicationController
   # POST /pints
   # POST /pints.json
   def create
-    @pint = Pint.new(pint_params)
+    @pint = current_user.pints.build(pint_params)
 
     respond_to do |format|
       if @pint.save
@@ -62,13 +65,17 @@ class PintsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pint
-      @pint = Pint.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pint
+    @pint = Pint.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def pint_params
-      params.require(:pint).permit(:description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def pint_params
+    params.require(:pint).permit(:description)
+  end
+  def correct_user
+    @pint = current_user.pints.find_by(id: params[:id])
+    redirect_to pints_path, notice: "You are not allowed to edit this pint" if @pint.nil?
+  end
 end
