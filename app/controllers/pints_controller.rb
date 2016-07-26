@@ -72,7 +72,7 @@ class PintsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def pint_params
-    params.require(:pint).permit(:description)
+    params.require(:pint).permit(:description, :image)
   end
   def correct_user
     @pint = current_user.pints.find_by(id: params[:id])

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +14,7 @@
   <tbody>
     <% @pints.each do |pint| %>
       <tr>
+        <td><%= image_tag pint.image.url(:medium) %></td>
         <td><%= pint.description %></td>
         <td><%= link_to 'Show', pint %></td>
         <% if pint.user == current_user %>
