@@ -6,13 +6,12 @@ class PintsController < ApplicationController
   # GET /pints
   # GET /pints.json
   def index
-    @pints = Pint.all
+    @pints = Pint.all.order("created_at DESC").paginate(page: params[:page], per_page: 3)
   end
 
   # GET /pints/1
   # GET /pints/1.json
   def show
-    @pint = Pint.find(params[:id])
   end
 
   # GET /pints/new

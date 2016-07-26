@@ -1,31 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pints List</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pints.each do |pint| %>
-      <tr>
-        <td><%= image_tag pint.image.url(:medium) %></td>
-        <td><%= pint.description %></td>
-        <td><%= link_to 'Show', pint %></td>
+<div id="pints" class="transitions-enabled">
+  <% @pints.each do |pint| %>
+    <div class="box">
+      <div class="panel panel-default">
+        <%= link_to image_tag(pint.image.url(:medium)), pint %></br>
+        <div class="panel-body">
+          <% if pint.description.present? %>
+            <%= pint.description %></br>
+          <% else %>
+            <i>No description available</i></br>
+          <% end %>
+        </div>
         <% if pint.user == current_user %>
-        <td><%= link_to 'Edit', edit_pint_path(pint) %></td>
-        <td><%= link_to 'Destroy', pint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <div class="panel-footer">
+            <%= link_to 'Edit', edit_pint_path(pint) %>
+            <%= link_to 'Destroy', pint, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<br>
-
-<%= link_to 'New Pint', new_pint_path, class: 'btn btn-primary' %>
+<div class="center">
+  <%= will_paginate @pints, renderer: BootstrapPagination::Rails %>
+</div>
