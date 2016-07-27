@@ -4,6 +4,7 @@
 
 
 $black: #000000;
+$red: #cb2027;
 
 .button {
 	&--action {
@@ -19,6 +20,25 @@ $black: #000000;
 			background-color: $black;
     		border-color: $black;
 		}
+		&__new-pint {
+			background-color: $black;
+    		border-color: $black;
+		}
+		&__sign-in:hover, &__sign-in:active, &__sign-in:focus {
+    		background-color: $red;
+    		border-color: $red;	
+		}	
+		&__log-out:hover, &__log-out:active, &__log-out:focus {
+			background-color: $red;
+    		border-color: $red;
+		}
+		&__log-in:hover, &__log-in:active, &__log-in:focus {
+			background-color: $red;
+    		border-color: $red;
+		}
+		&__new-pint:hover, &__new-pint:active, &__new-pint:focus {
+			background-color: $red;
+    		border-color: $red;
+		}
 	}
 }
-
