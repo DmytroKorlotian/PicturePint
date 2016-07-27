@@ -19,6 +19,8 @@ gem 'devise', '~> 4.2'
 
 gem 'paperclip', '~> 5.0'
 
+gem 'aws-sdk', '~> 2.4', '>= 2.4.3'
+
 gem 'masonry-rails', '~> 0.2.4'
 
 gem 'will_paginate', '~> 3.1'
