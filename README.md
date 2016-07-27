@@ -1,24 +1,19 @@
-# README
+#PicturePint
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was developed in RoR, using Ruby 2.3.0 and Rails 5.
 
-Things you may want to cover:
+## TL;DR
 
-* Ruby version
+Application is a small version of Pinterest - you can create your profile and upload photos with descriptions.
 
-* System dependencies
+## Gems used
 
-* Configuration
+* devise - for authentication
+* paperclip - for photo upload
+* bootstrap - for providing basic styling
+* will_paginate - for basic pagination
+* masonry-rails - for animations
 
-* Database creation
+## Heroku deployment
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I decided to deploy my app to heroku. You can find it under: http://picturepint.herokuapp.com
